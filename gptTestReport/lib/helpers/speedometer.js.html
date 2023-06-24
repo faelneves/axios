@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">41.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/55</span>
+                <span class='fraction'>23/55</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">41.81% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/55</span>
+                <span class='fraction'>23/55</span>
             </div>
         
             
@@ -126,6 +126,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -158,19 +169,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -181,17 +181,17 @@
  * @param {Number} [min= 1000]
  * @returns {Function}
  */
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function speedometer(samplesCount, min) {</span></span>
-<span class="cstat-no" title="statement not covered" >  samplesCount = samplesCount || 10;</span>
-<span class="cstat-no" title="statement not covered" >  const bytes = new Array(samplesCount);</span>
-<span class="cstat-no" title="statement not covered" >  const timestamps = new Array(samplesCount);</span>
-<span class="cstat-no" title="statement not covered" >  let head = 0;</span>
-<span class="cstat-no" title="statement not covered" >  let tail = 0;</span>
-<span class="cstat-no" title="statement not covered" >  let firstSampleTS;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  min = min !== undefined ? min : 1000;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return function push(chunkLength) {</span>
+function speedometer(samplesCount, min) {
+  samplesCount = samplesCount <span class="branch-0 cbranch-no" title="branch not covered" >|| 10;</span>
+  const bytes = new Array(samplesCount);
+  const timestamps = new Array(samplesCount);
+  let head = 0;
+  let tail = 0;
+  let firstSampleTS;
+&nbsp;
+  min = min !== undefined ? min <span class="branch-0 cbranch-no" title="branch not covered" >: 1000;</span>
+&nbsp;
+  return <span class="fstat-no" title="function not covered" >function push(chunkLength) {</span>
 <span class="cstat-no" title="statement not covered" >    const now = Date.now();</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const startedAt = timestamps[tail];</span>
@@ -224,8 +224,8 @@
 <span class="cstat-no" title="statement not covered" >    const passed = startedAt &amp;&amp; now - startedAt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    return passed ? Math.round(bytesCount * 1000 / passed) : undefined;</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+  };
+}
 &nbsp;
 export default speedometer;
 &nbsp;</pre></td></tr></table></pre>
@@ -235,7 +235,7 @@ export default speedometer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-20T03:12:34.699Z
+                at 2023-06-24T20:09:47.955Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
